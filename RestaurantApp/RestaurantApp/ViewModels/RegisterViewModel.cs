@@ -7,6 +7,9 @@ using Xamarin.Forms;
 
 namespace RestaurantApp.ViewModels
 {
+    //<summary>
+    // Registracijski screen
+    //</summary>
     public class RegisterViewModel : BaseViewModel
     {
         string username, firstname, lastname, password;
@@ -19,12 +22,18 @@ namespace RestaurantApp.ViewModels
                 (_, __) => OnSaveCommand.ChangeCanExecute();
         }
 
+        //<summary>
+        // Povratak na Login screen
+        //</summary>
         private async void GetBack(object obj)
         {
             Console.WriteLine(obj);
             await Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
         }
 
+        //<summary>
+        // Validacija svih inputa sa registration screena
+        //</summary>
         private bool Validate(object arg)
         {
             return !String.IsNullOrWhiteSpace(firstname)
@@ -33,6 +42,9 @@ namespace RestaurantApp.ViewModels
                 && !String.IsNullOrWhiteSpace(password);
         }
 
+        //<summary>
+        // Spremanje novog gosta u array usera i resetovanje inputa
+        //</summary>
         private async void OnSave(object obj)
         {
             User newItem = new User()
@@ -55,6 +67,9 @@ namespace RestaurantApp.ViewModels
 
         }
 
+        //<summary>
+        // Setovanje vrijednosti inputa
+        //</summary>
         public string Username
         {
             get => username;

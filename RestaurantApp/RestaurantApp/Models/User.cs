@@ -4,6 +4,9 @@ using System.Text;
 
 namespace RestaurantApp.Models
 {
+    //<summary>
+    //Atributi modela kreiranog za unificiranje podataka o gostu
+    //</summary>
     public class User
     {
         public string Id { get; set; }

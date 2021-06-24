@@ -19,14 +19,11 @@ namespace RestaurantApp.ViewModels
 
         public ItemDetailViewModel()
         {
-            //OrderCommands = new Command(OrderCommand);
         }
 
-        //private async void OrderCommand(System.Object sender, System.EventArgs e)
-        //{
-        //    await this.DisplayToastAsync("Narudžba uspješno završena", 1000);
-        //}
-
+        //<summary>
+        // Setovanje varijabli iz modela
+        //</summary>
         public string Id { get; set; }
 
         public string Text
@@ -65,6 +62,10 @@ namespace RestaurantApp.ViewModels
             }
         }
 
+
+        //<summary>
+        // Ucitavanje jela koje je korisnik izabrao
+        //</summary>
         public async void LoadItemId(string itemId)
         {
             try

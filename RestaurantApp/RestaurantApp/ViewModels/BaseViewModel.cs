@@ -8,6 +8,9 @@ using Xamarin.Forms;
 
 namespace RestaurantApp.ViewModels
 {
+    //<summary>
+    // ova klasa predastavlja bazni model screena i kroz nju se pristupa svim podacima u aplikaciji.
+    //</summary>
     public class BaseViewModel : INotifyPropertyChanged
     {
         public IDataStore<User> DataStore => DependencyService.Get<IDataStore<User>>();

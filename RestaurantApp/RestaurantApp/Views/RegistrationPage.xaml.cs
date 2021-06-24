@@ -19,6 +19,9 @@ namespace RestaurantApp.Views
             this.BindingContext = new RegisterViewModel();
         }
 
+        //<summary>
+        // Klikom na register pojavljiva se taost i screen se vraca na login
+        //</summary>
         public async void RegisteredCommand(System.Object sender, System.EventArgs e)
         {
             await this.DisplayToastAsync("Registration completed", 1000);

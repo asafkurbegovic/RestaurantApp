@@ -10,6 +10,12 @@ using Xamarin.Forms;
 
 namespace RestaurantApp.ViewModels
 {
+
+    //<summary>
+    // ViewModel folder sadrzi sve fajlove koji se ponasaju kao kontroleri u aplikaciji na nacin da upravljaju
+    // kada i kako ce se prokazati podaci koje imamo u 'MockDataStore' i 'MockDataStoreProducts'. To sve se
+    // odvija preko metoda kreiranih u interfaceu i implementiranih u servisima.
+    //</summary>
     public class AboutViewModel : BaseViewModel
     {
         private Item _selectedItem;
@@ -21,6 +27,8 @@ namespace RestaurantApp.ViewModels
         public AboutViewModel()
         {
             Console.WriteLine("loadaed");
+
+            // naslov prikazanog screena
             Title = "Menu";
             Items = new ObservableCollection<Item>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
@@ -30,8 +38,10 @@ namespace RestaurantApp.ViewModels
             AddItemCommand = new Command(OnAddItem);
         }
 
-
-         async Task ExecuteLoadItemsCommand()
+        //<summary>
+        // Ucitavanje svih jela iz mock podataka.
+        //</summary>
+        async Task ExecuteLoadItemsCommand()
         {
             IsBusy = true;
 
@@ -54,12 +64,18 @@ namespace RestaurantApp.ViewModels
             }
         }
 
+        //<summary>
+        // Postavljanje parametara prilikom ucitavanja screena
+        //</summary>
         public void OnAppearing()
         {
             IsBusy = true;
             SelectedItem = null;
         }
 
+        //<summary>
+        // Dodjeljivanje vrijednosti koje se nalaze u modelu jela koje je korisnik kliknuo
+        //</summary>
         public Item SelectedItem
         {
             get => _selectedItem;
@@ -70,11 +86,18 @@ namespace RestaurantApp.ViewModels
             }
         }
 
+        //<summary>
+        // Preusmjeravanje na screen za dodavanje novih jela
+        // NE MOZE SE KORISTIT JER NEMA LOGIKE DA GOST DODAJE JELA.
+        //</summary>
         private async void OnAddItem(object obj)
         {
             await Shell.Current.GoToAsync(nameof(NewItemPage));
         }
 
+        //<summary>
+        // Preusmjeravanje korisnika na screen sa detaljima jela koje je izabrao
+        //</summary>
         async void OnItemSelected(Item item)
         {
             if (item == null)

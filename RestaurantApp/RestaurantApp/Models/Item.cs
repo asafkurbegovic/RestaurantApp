@@ -2,6 +2,9 @@
 
 namespace RestaurantApp.Models
 {
+    //<summary>
+    //Atributi modela kreiranog za unificiranje podataka o jelu
+    //</summary>
     public class Item
     {
         public string Id { get; set; }

@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace RestaurantApp.Services
 {
+    //<summary>
+    // Klasa koja sadrzi primjer podataka koje bi imao gost u situaciji kada bi se gost spremao u bazu podataka. 
+    // Pored primjera, klasa sadrzi implementaciju svih metoda iz interfacea.
+    //</summary>
     public class MockDataStore : IDataStore<User>
     {
         readonly List<User> items;
